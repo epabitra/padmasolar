@@ -15,8 +15,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div>
             <div className="footer-brand">
-              <Logo size={42} />
-              <strong>{company.name}</strong>
+              <Logo height={46} badge />
             </div>
             <p>{tt(ui.footerAbout)}</p>
             <div className="footer-social">

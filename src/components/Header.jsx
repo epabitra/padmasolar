@@ -13,9 +13,8 @@ export default function Header() {
       <div className="header-main">
         <div className="container">
           <Link to="/" className="brand" onClick={() => setOpen(false)}>
-            <Logo size={52} />
+            <Logo height={58} />
             <span className="brand__text">
-              <strong>{company.name}</strong>
               <span>{tt(company.registration)}</span>
             </span>
           </Link>

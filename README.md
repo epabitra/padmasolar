@@ -78,7 +78,21 @@ To add or edit copy, change the `{ en, od }` pair in `src/data/site.js` — no c
 - [ ] Wire the contact form to email / CRM (`src/pages/Contact.jsx` — currently a front-end demo)
 - [ ] Exact office location in the map embed (`src/pages/Contact.jsx`)
 - [ ] Verify current subsidy figures against the PM Surya Ghar portal
-- [ ] Replace the inline SVG brand mark (`src/components/Logo.jsx`) with a real logo if available
+
+## Logo
+
+`src/assets/logo.jpeg` is the client-supplied logo (sun + panel + swoosh, "Padma Solar Services /
+Powering Your Tomorrow"). It's rendered via `src/components/Logo.jsx`:
+
+- **Header** — shown directly (white background, no card needed).
+- **Footer** — wrapped in a white rounded card (`badge` prop / `.logo-badge`) since the footer is
+  navy and the logo's background is near-white, not transparent.
+
+Favicons are generated crops of the same file (`public/favicon-16.png`, `favicon-32.png`,
+`favicon-192.png`, `apple-touch-icon.png`): the tiny 16/32px ones use a tight crop of just the
+sun/panel icon (the full lockup is illegible at that size), the larger ones use the full logo. If
+the client ever supplies a vector/high-res or transparent-background version, swap
+`src/assets/logo.jpeg` and regenerate the favicons from it.
 
 ## Deployment — GitHub Pages (configured)
 
