@@ -21,9 +21,18 @@ import CtaStrip from '../components/CtaStrip'
 import Accordion from '../components/Accordion'
 import heroSolarField from '../assets/hero-solar-field.webp'
 import leadershipImg from '../assets/leadership.webp'
+import useSeo from '../hooks/useSeo'
+import { routes, buildOrganizationJsonLd, buildFaqJsonLd } from '../data/seo'
 
 export default function Home() {
   const { tt } = useLang()
+
+  useSeo({
+    title: routes.home.title,
+    description: routes.home.description,
+    path: routes.home.path,
+    jsonLd: [buildOrganizationJsonLd(), buildFaqJsonLd(faqs.slice(0, 5))]
+  })
 
   return (
     <>

@@ -3,9 +3,22 @@ import { useLang } from '../i18n.jsx'
 import PageHero from '../components/PageHero'
 import CtaStrip from '../components/CtaStrip'
 import { pageMeta, projects, projectCategories, projectsNote } from '../data/site'
+import useSeo from '../hooks/useSeo'
+import { routes, buildBreadcrumbJsonLd } from '../data/seo'
 
 export default function Projects() {
   const { tt } = useLang()
+
+  useSeo({
+    title: routes.projects.title,
+    description: routes.projects.description,
+    path: routes.projects.path,
+    jsonLd: buildBreadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: pageMeta.projects.crumb.en, path: routes.projects.path }
+    ])
+  })
+
   const [cat, setCat] = useState('All')
   const list = useMemo(
     () => (cat === 'All' ? projects : projects.filter((p) => p.category === cat)),

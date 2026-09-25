@@ -3,9 +3,22 @@ import { useLang } from '../i18n.jsx'
 import PageHero from '../components/PageHero'
 import { Icon } from '../components/Icons'
 import { company, pageMeta, contactPage } from '../data/site'
+import useSeo from '../hooks/useSeo'
+import { routes, buildBreadcrumbJsonLd } from '../data/seo'
 
 export default function Contact() {
   const { tt } = useLang()
+
+  useSeo({
+    title: routes.contact.title,
+    description: routes.contact.description,
+    path: routes.contact.path,
+    jsonLd: buildBreadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: pageMeta.contact.crumb.en, path: routes.contact.path }
+    ])
+  })
+
   const [sent, setSent] = useState(false)
   const [form, setForm] = useState({
     name: '',

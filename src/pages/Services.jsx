@@ -4,9 +4,22 @@ import PageHero from '../components/PageHero'
 import CtaStrip from '../components/CtaStrip'
 import { Icon } from '../components/Icons'
 import { pageMeta, services, servicesPage, process, ui } from '../data/site'
+import useSeo from '../hooks/useSeo'
+import { routes, buildBreadcrumbJsonLd } from '../data/seo'
 
 export default function Services() {
   const { tt } = useLang()
+
+  useSeo({
+    title: routes.services.title,
+    description: routes.services.description,
+    path: routes.services.path,
+    jsonLd: buildBreadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: pageMeta.services.crumb.en, path: routes.services.path }
+    ])
+  })
+
   return (
     <>
       <PageHero

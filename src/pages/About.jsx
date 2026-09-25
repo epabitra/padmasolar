@@ -5,9 +5,22 @@ import StatBand from '../components/StatBand'
 import CtaStrip from '../components/CtaStrip'
 import { Icon } from '../components/Icons'
 import { pageMeta, aboutPage, process, credentials, ui } from '../data/site'
+import useSeo from '../hooks/useSeo'
+import { routes, buildBreadcrumbJsonLd } from '../data/seo'
 
 export default function About() {
   const { tt } = useLang()
+
+  useSeo({
+    title: routes.about.title,
+    description: routes.about.description,
+    path: routes.about.path,
+    jsonLd: buildBreadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: pageMeta.about.crumb.en, path: routes.about.path }
+    ])
+  })
+
   return (
     <>
       <PageHero

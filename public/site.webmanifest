@@ -1,0 +1,15 @@
+{
+  "name": "Padma Solar Services",
+  "short_name": "Padma Solar",
+  "description": "MNRE-registered rooftop solar installer serving Odisha - PM Surya Ghar subsidy, net metering, solar EPC.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b2e6b",
+  "lang": "en-IN",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
